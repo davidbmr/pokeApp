@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { getAllPokemonsApi } = require("../conections/conections.js");
+const { getAllPokemons } = require("../conections/conections.js");
 const router = Router();
 
 // Importar todos los routers;
@@ -11,10 +11,11 @@ const routerTypes = require("./types");
 router.use("/pokemons", routerPokemons);
 router.use("/types", routerTypes);
 
-router.get("/test", async (req, res) => {
-	const arr = await getAllPokemonsApi();
-	console.log(arr);
-	return res.json(arr);
-});
+// router.get("/test", async (req, res) => {
+// 	// const arr = await getAllPokemonsApi();
+// 	const arr = await getAllPokemons();
+// 	console.log(arr);
+// 	return res.json(arr);
+// });
 
 module.exports = router;

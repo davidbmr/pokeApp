@@ -49,6 +49,7 @@ routerPokemons.post("/", async (req, res) => {
 		const typeDB = await Type.findAll({
 			where: { name: types },
 		});
+
 		await createPokemon.addType(typeDB);
 		res.send(`Personaje creado con exito papuuu!! sigue adelante!!`);
 	} catch (error) {

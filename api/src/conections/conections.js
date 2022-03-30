@@ -23,7 +23,7 @@ const { Pokemon, Type } = require("../db");
 /** Haciendo una peticion usando limit */
 const url = "https://pokeapi.co/api/v2/pokemon?limit=50";
 
-axios.get(url).then((res) => res.data.results);
+// axios.get(url).then((res) => res.data.results);
 
 const getAllPokemonsApi = () => {
 	return axios

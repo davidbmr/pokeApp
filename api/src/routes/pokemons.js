@@ -1,5 +1,7 @@
+const { default: axios } = require("axios");
 const { Router } = require("express");
 const { getAllPokemons } = require("../conections/conections");
+const { Pokemon, Type } = require("../db");
 
 const routerPokemons = Router();
 
@@ -18,7 +20,6 @@ routerPokemons.get("/", async (req, res) => {
 routerPokemons.get("/:id", async (req, res) => {
 	try {
 		const { id } = req.params;
-		console.log(id);
 		const allPokes = await getAllPokemons();
 		const pokeFilter = allPokes.find((element) => element.id == id);
 		if (pokeFilter) {
@@ -30,6 +31,29 @@ routerPokemons.get("/:id", async (req, res) => {
 		console.log(error);
 	}
 });
-routerPokemons.post("/", (req, res) => {});
+
+routerPokemons.post("/", async (req, res) => {
+	try {
+		const { name, hp, attack, defense, speed, height, weight, imagen, types } = req.body;
+		const createPokemon = await Pokemon.create({
+			name,
+			hp,
+			attack,
+			defense,
+			speed,
+			height,
+			weight,
+			imagen,
+		});
+
+		const typeDB = await Type.findAll({
+			where: { name: types },
+		});
+		await createPokemon.addType(typeDB);
+		res.send(`Personaje creado con exito papuuu!! sigue adelante!!`);
+	} catch (error) {
+		console.log(error);
+	}
+});
 
 module.exports = routerPokemons;

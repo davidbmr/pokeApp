@@ -21,7 +21,9 @@ routerPokemons.get("/:id", async (req, res) => {
 	try {
 		const { id } = req.params;
 		const allPokes = await getAllPokemons();
+
 		const pokeFilter = allPokes.find((element) => element.id == id);
+
 		if (pokeFilter) {
 			res.status(200).json(pokeFilter);
 		} else {
@@ -34,7 +36,8 @@ routerPokemons.get("/:id", async (req, res) => {
 
 routerPokemons.post("/", async (req, res) => {
 	try {
-		const { name, hp, attack, defense, speed, height, weight, imagen, types } = req.body;
+		const { name, hp, attack, defense, speed, height, weight, imagen, types } =
+			req.body;
 		const createPokemon = await Pokemon.create({
 			name,
 			hp,
@@ -51,6 +54,7 @@ routerPokemons.post("/", async (req, res) => {
 		});
 
 		await createPokemon.addType(typeDB);
+
 		res.send(`Personaje creado con exito papuuu!! sigue adelante!!`);
 	} catch (error) {
 		console.log(error);

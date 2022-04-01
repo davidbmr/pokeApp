@@ -1,34 +1,33 @@
 import React from "react";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getAllPokemons } from "../actions";
-import { Link } from "react-router-dom";
+import Card from "../components/home/Card";
 
 const HomePage = () => {
 	const dispatch = useDispatch();
-	// const allPokemons = useSelector((state) => state.pokemons);
+	const allPokemons = useSelector((state) => state.pokemonsList);
+
+	console.log(allPokemons);
 
 	useEffect(() => {
 		dispatch(getAllPokemons());
 	}, [dispatch]);
 
-	function handleClick(e) {
-		e.preventDefault();
-		dispatch(getAllPokemons);
-	}
-
 	return (
 		<div>
-			<Link to='/pokemons'>Crear pokemon</Link>
-			<h1>Aguante Pokemon</h1>
-			<button
-				onClick={(e) => {
-					handleClick(e);
-				}}
-			>
-				Volver a cargar todos los pokemons
-			</button>
-			<div></div>
+			<h1>Pokemons</h1>
+			<ul>
+				{allPokemons?.map((pokemon) => (
+					<Card
+						key={pokemon.id}
+						id={pokemon.id}
+						name={pokemon.name}
+						img={pokemon.img}
+						types={pokemon.types}
+					/>
+				))}
+			</ul>
 		</div>
 	);
 };

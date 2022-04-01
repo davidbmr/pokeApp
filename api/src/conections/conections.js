@@ -21,7 +21,7 @@ const { Pokemon, Type } = require("../db");
 // };
 
 /** Haciendo una peticion usando limit */
-const url = "https://pokeapi.co/api/v2/pokemon?limit=50";
+const url = "https://pokeapi.co/api/v2/pokemon?limit=40";
 
 // axios.get(url).then((res) => res.data.results);
 
@@ -41,23 +41,25 @@ const getAllPokemonsInfoApi = async () => {
 			return axios.get(element.url);
 		});
 
-		const arrPokemonInfo = await Promise.all(arrPromeses).then((responsePromeses) => {
-			const pokeArray = responsePromeses.map((element) => {
-				return {
-					id: element.data.id,
-					name: element.data.name,
-					hp: element.data.stats[0].base_stat,
-					attack: element.data.stats[1].base_stat,
-					defense: element.data.stats[2].base_stat,
-					speed: element.data.stats[5].base_stat,
-					height: element.data.height,
-					weight: element.data.weight,
-					types: element.data.types.map((element) => element.type.name),
-					img: element.data.sprites.other.home.front_default,
-				};
-			});
-			return pokeArray;
-		});
+		const arrPokemonInfo = await Promise.all(arrPromeses).then(
+			(responsePromeses) => {
+				const pokeArray = responsePromeses.map((element) => {
+					return {
+						id: element.data.id,
+						name: element.data.name,
+						hp: element.data.stats[0].base_stat,
+						attack: element.data.stats[1].base_stat,
+						defense: element.data.stats[2].base_stat,
+						speed: element.data.stats[5].base_stat,
+						height: element.data.height,
+						weight: element.data.weight,
+						types: element.data.types.map((element) => element.type.name),
+						img: element.data.sprites.other.home.front_default,
+					};
+				});
+				return pokeArray;
+			}
+		);
 		return arrPokemonInfo;
 	} catch (error) {
 		console.log(error);
@@ -94,4 +96,8 @@ const getAllPokemons = async () => {
 	}
 };
 
-module.exports = { getAllPokemonsInfoApi, getAllPokemonsInfoDb, getAllPokemons };
+module.exports = {
+	getAllPokemonsInfoApi,
+	getAllPokemonsInfoDb,
+	getAllPokemons,
+};

@@ -1,0 +1,22 @@
+.numberButton {
+	width: 35px;
+	height: 35px;
+	margin: 5px 5px;
+	border-radius: 50%;
+	border: solid 2px #333;
+}
+
+.numberButton:hover,
+.currentButton:hover {
+	background: tomato;
+	color: white;
+	border: solid 2px tomato;
+}
+
+.currentButton {
+	width: 45px;
+	height: 25px;
+	margin: 0 10px;
+	border: solid 2px #333;
+	border-radius: 20px;
+}

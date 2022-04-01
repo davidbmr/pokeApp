@@ -11,6 +11,7 @@
 	background: tomato;
 	color: white;
 	border: solid 2px tomato;
+	cursor: pointer;
 }
 
 .currentButton {

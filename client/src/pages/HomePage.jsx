@@ -37,6 +37,7 @@ const HomePage = () => {
 
 			<div className={style.subMenuBar}>
 				<Paginated
+					currentPage={currentPage}
 					pageNumber={pages}
 					amountPerPage={pokemonsPerPage}
 					totalAmount={allPokemons.length}

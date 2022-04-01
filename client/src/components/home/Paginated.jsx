@@ -1,17 +1,28 @@
 import React from "react";
 import styles from "./Paginated.module.css";
 
-const Paginated = ({ pageNumber, amountPerPage, totalAmount }) => {
+const Paginated = ({ pageNumber, amountPerPage, totalAmount, currentPage }) => {
 	const pageNumbers = [];
 
 	for (let i = 1; i <= Math.ceil(totalAmount / amountPerPage); i++) {
 		pageNumbers.push(i);
 	}
 
+	const prevHandler = () => {
+		if (currentPage <= 1) return;
+		pageNumber(currentPage - 1);
+	};
+	const nextHandler = () => {
+		if (currentPage >= pageNumbers.length) return;
+		pageNumber(currentPage + 1);
+	};
+
 	return (
 		<div>
 			<div>
-				<button className={styles.currentButton}>prev</button>
+				<button className={styles.currentButton} onClick={() => prevHandler()}>
+					Prev
+				</button>
 				{pageNumbers &&
 					pageNumbers.map((num) => {
 						return (
@@ -24,7 +35,9 @@ const Paginated = ({ pageNumber, amountPerPage, totalAmount }) => {
 							</button>
 						);
 					})}
-				<button className={styles.currentButton}>next</button>
+				<button className={styles.currentButton} onClick={() => nextHandler()}>
+					Next
+				</button>
 			</div>
 		</div>
 	);

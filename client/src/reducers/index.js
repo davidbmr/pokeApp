@@ -2,7 +2,6 @@ const initialState = {
 	pokemonsList: [],
 	allPokemonsList: [],
 	allPokemonsListOrder: [],
-	pokemonsFiltered: [],
 	pokemon: {},
 	typesList: [],
 };
@@ -14,7 +13,6 @@ function rootReducer(state = initialState, action) {
 				...state,
 				pokemonsList: action.payload,
 				allPokemonsList: [...action.payload],
-				pokemonsFiltered: [...action.payload],
 			};
 
 		case "GET_POKEMON_BY_ID":

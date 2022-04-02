@@ -43,9 +43,16 @@ export function getPokemonById(id) {
 	};
 }
 
-export default function filterByTypes(payload) {
+export function filterByTypes(payload) {
 	return {
 		type: "FILTER_BY_TYPES",
+		payload,
+	};
+}
+
+export function filterByOrder(payload) {
+	return {
+		type: "FILTER_BY_ORDER",
 		payload,
 	};
 }

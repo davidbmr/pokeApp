@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import filterByTypes, { getAllTypes } from "../../actions";
+import { getAllTypes, filterByTypes, filterByOrder } from "../../actions";
 
 const MenuFilter = ({ setCurrentPage }) => {
 	const dispatch = useDispatch();
@@ -13,6 +13,12 @@ const MenuFilter = ({ setCurrentPage }) => {
 	const handlerFilterByTypes = (e) => {
 		e.preventDefault();
 		dispatch(filterByTypes(e.target.value));
+		setCurrentPage(() => 1);
+	};
+
+	const handlerFilterByOrder = (e) => {
+		e.preventDefault();
+		dispatch(filterByOrder(e.target.value));
 		setCurrentPage(() => 1);
 	};
 
@@ -42,7 +48,7 @@ const MenuFilter = ({ setCurrentPage }) => {
 
 			<div>
 				<label>Order: </label>
-				<select className='orden al renderizar'>
+				<select onChange={(e) => handlerFilterByOrder(e)}>
 					<option value='pokedex'>pokedex</option>
 					<option value='ascending'>a-z</option>
 					<option value='descending'>z-a</option>

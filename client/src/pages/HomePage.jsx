@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPokemons } from "../actions";
 import Card from "../components/home/Card";
+import MenuFilter from "../components/home/MenuFilter";
 import Paginated from "../components/home/Paginated";
-import style from "./HomePage.module.css";
+import style from "./styles/HomePage.module.css";
 
 const HomePage = () => {
 	const dispatch = useDispatch();
@@ -35,16 +36,27 @@ const HomePage = () => {
 		<div>
 			<h1>Pokemons</h1>
 
-			<div className={style.subMenuBar}>
-				<Paginated
-					currentPage={currentPage}
-					pageNumber={pages}
-					amountPerPage={pokemonsPerPage}
-					totalAmount={allPokemons.length}
-				/>
+			<div className={style.subMenuContainer}>
+				<div className={style.searchContainer}>
+					<input type='text' />
+					<button>Buscar</button>
+				</div>
+				<div className={style.filtersContainer}>
+					<MenuFilter setCurrentPage={setCurrentPage} />
+				</div>
 			</div>
 
+			<hr />
+
 			<div className={style.pokeListContainer}>
+				<div className={style.paginatedList}>
+					<Paginated
+						currentPage={currentPage}
+						pageNumber={pages}
+						amountPerPage={pokemonsPerPage}
+						totalAmount={allPokemons.length}
+					/>
+				</div>
 				<ul className={style.pokeList}>
 					{currentPokemons?.map((pokemon) => (
 						<Card

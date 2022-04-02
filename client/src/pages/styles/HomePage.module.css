@@ -1,0 +1,38 @@
+h1 {
+	text-align: center;
+	margin: 10px 0;
+}
+
+.subMenuContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.filtersContainer {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	margin: 10px 0;
+}
+
+.paginatedList {
+	display: grid;
+	place-items: center;
+}
+
+.pokeListContainer {
+	width: 100%;
+	height: 550px; /*Modificar el vh*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 10px;
+}
+
+.pokeList {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 20px;
+}

@@ -42,3 +42,10 @@ export function getPokemonById(id) {
 		}
 	};
 }
+
+export default function filterByTypes(payload) {
+	return {
+		type: "FILTER_BY_TYPES",
+		payload,
+	};
+}

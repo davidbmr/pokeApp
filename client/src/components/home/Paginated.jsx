@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Paginated.module.css";
+import styles from "./styles/Paginated.module.css";
 
 const Paginated = ({ pageNumber, amountPerPage, totalAmount, currentPage }) => {
 	const pageNumbers = [];

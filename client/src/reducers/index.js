@@ -1,6 +1,7 @@
 const initialState = {
 	pokemonsList: [],
 	allPokemonsList: [],
+	allPokemonsListOrder: [],
 	pokemonsFiltered: [],
 	pokemon: {},
 	typesList: [],
@@ -28,29 +29,8 @@ function rootReducer(state = initialState, action) {
 				typesList: action.payload,
 			};
 
-		case "FILTER_BY_TYPES":
-			const allPokemons = [...state.allPokemonsList];
-
-			if (action.payload === "all") {
-				return {
-					...state,
-					pokemonsList: allPokemons,
-					pokemonsFiltered: allPokemons,
-				};
-			} else {
-				const typesFiltered = allPokemons.filter((pokemon) =>
-					pokemon.types.includes(action.payload)
-				);
-
-				return {
-					...state,
-					pokemonsList: typesFiltered,
-					pokemonsFiltered: typesFiltered,
-				};
-			}
-
 		case "FILTER_BY_ORDER":
-			const currentPokemons = [...state.pokemonsFiltered];
+			const currentPokemons = [...state.allPokemonsList];
 
 			if (action.payload === "pokedex") {
 				currentPokemons.sort((obj1, obj2) => {
@@ -85,7 +65,27 @@ function rootReducer(state = initialState, action) {
 			return {
 				...state,
 				pokemonsList: currentPokemons,
+				allPokemonsListOrder: currentPokemons,
 			};
+
+		case "FILTER_BY_TYPES":
+			const allPokemons = [...state.allPokemonsListOrder];
+
+			if (action.payload === "all") {
+				return {
+					...state,
+					pokemonsList: allPokemons,
+				};
+			} else {
+				const typesFiltered = allPokemons.filter((pokemon) =>
+					pokemon.types.includes(action.payload)
+				);
+
+				return {
+					...state,
+					pokemonsList: typesFiltered,
+				};
+			}
 
 		default:
 			return state;

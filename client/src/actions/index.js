@@ -33,7 +33,7 @@ export function getPokemonById(id) {
 	return async function (dispatch) {
 		try {
 			let pokemon = await axios.get(`http://localhost:3001/pokemons/${id}`);
-			return dispatch()({
+			return dispatch({
 				type: "GET_POKE_BY_ID",
 				payload: pokemon.data,
 			});

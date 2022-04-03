@@ -48,7 +48,7 @@ const MenuFilter = ({ setCurrentPage }) => {
 
 			<div>
 				<label>Order: </label>
-				<select onChange={(e) => handlerFilterByOrder(e)}>
+				<select id='filterOrder' onChange={(e) => handlerFilterByOrder(e)}>
 					<option value='pokedex'>pokedex</option>
 					<option value='ascending'>a-z</option>
 					<option value='descending'>z-a</option>

@@ -10,8 +10,8 @@ const Card = ({ id, name, img, types }) => {
 				<h3 className={style.name}>{name}</h3>
 				<ul className={style.cardTypes}>
 					{types?.map((type) => (
-						<li key={type} className={style.type} value={type}>
-							{type}
+						<li key={type.name} className={style.type} value={type.name}>
+							{type.name}
 						</li>
 					))}
 				</ul>

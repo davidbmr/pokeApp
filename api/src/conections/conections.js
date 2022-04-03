@@ -53,7 +53,9 @@ const getAllPokemonsInfoApi = async () => {
 						speed: element.data.stats[5].base_stat,
 						height: element.data.height,
 						weight: element.data.weight,
-						types: element.data.types.map((element) => element.type.name),
+						types: element.data.types.map((element) => {
+							return { name: element.type.name };
+						}),
 						img: element.data.sprites.other.home.front_default,
 					};
 				});

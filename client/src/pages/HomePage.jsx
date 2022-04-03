@@ -5,6 +5,7 @@ import { getAllPokemons } from "../actions";
 import Card from "../components/home/Card";
 import MenuFilter from "../components/home/MenuFilter";
 import Paginated from "../components/home/Paginated";
+import SearchBar from "../components/home/SearchBar";
 import style from "./styles/HomePage.module.css";
 
 const HomePage = () => {
@@ -38,8 +39,7 @@ const HomePage = () => {
 
 			<div className={style.subMenuContainer}>
 				<div className={style.searchContainer}>
-					<input type='text' />
-					<button>Buscar</button>
+					<SearchBar setCurrentPage={setCurrentPage} />
 				</div>
 				<div className={style.filtersContainer}>
 					<MenuFilter setCurrentPage={setCurrentPage} />

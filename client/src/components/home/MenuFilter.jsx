@@ -5,6 +5,7 @@ import {
 	filterByTypes,
 	filterByOrder,
 	filterByStrength,
+	filterByCreated,
 } from "../../actions";
 
 const MenuFilter = ({ setCurrentPage }) => {
@@ -33,6 +34,12 @@ const MenuFilter = ({ setCurrentPage }) => {
 		setCurrentPage(() => 1);
 	};
 
+	const handlerFilterByCreated = (e) => {
+		e.preventDefault();
+		dispatch(filterByCreated(e.target.value));
+		setCurrentPage(() => 1);
+	};
+
 	return (
 		<>
 			<div>
@@ -50,7 +57,7 @@ const MenuFilter = ({ setCurrentPage }) => {
 
 			<div>
 				<label>Tipo de creacion: </label>
-				<select className='tipos de creacion'>
+				<select onChange={(e) => handlerFilterByCreated(e)}>
 					<option value='all'>all</option>
 					<option value='existing'>existing</option>
 					<option value='created'>created</option>

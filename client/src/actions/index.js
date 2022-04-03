@@ -63,3 +63,26 @@ export function filterByStrength(payload) {
 		payload,
 	};
 }
+
+export function filterByCreated(payload) {
+	return {
+		type: "FILTER_BY_CREATED",
+		payload,
+	};
+}
+
+export function getNamePokemon(name) {
+	return async function (dispatch) {
+		try {
+			let pokemonName = await axios.get(
+				`http://localhost:3001/pokemons?name=${name}`
+			);
+			return dispatch({
+				type: "GET_NAME_POKEMON",
+				payload: pokemonName.data,
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	};
+}

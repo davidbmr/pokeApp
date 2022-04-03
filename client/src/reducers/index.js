@@ -1,6 +1,7 @@
 const initialState = {
 	pokemonsList: [], //render
 	allPokemonsList: [], //all los pokes fijos
+	createdPokemonFiltered: [],
 	typePokemonFiltered: [],
 	pokemon: {},
 	typesList: [],
@@ -14,6 +15,7 @@ function rootReducer(state = initialState, action) {
 				pokemonsList: [...action.payload],
 				allPokemonsList: [...action.payload],
 				typePokemonFiltered: [...action.payload],
+				createdPokemonFiltered: [...action.payload],
 			};
 		case "GET_ALL_TYPES":
 			return {
@@ -22,7 +24,7 @@ function rootReducer(state = initialState, action) {
 			};
 
 		case "FILTER_BY_TYPES":
-			const allPokemons = [...state.allPokemonsList];
+			const allPokemons = [...state.createdPokemonFiltered];
 
 			if (action.payload === "all") {
 				return {
@@ -116,6 +118,39 @@ function rootReducer(state = initialState, action) {
 				...state,
 				typePokemonFiltered: currentPokemons2,
 				pokemonsList: currentPokemons2,
+			};
+
+		case "FILTER_BY_CREATED":
+			const currentPokemons3 = [...state.allPokemonsList];
+			if (action.payload === "existing") {
+				const pokemonFilteredCreated = currentPokemons3.filter(
+					(pokemon) => pokemon.id < 1000
+				);
+				return {
+					...state,
+					pokemonsList: pokemonFilteredCreated,
+					createdPokemonFiltered: pokemonFilteredCreated,
+				};
+			} else if (action.payload === "created") {
+				const pokemonFilteredCreated = currentPokemons3.filter(
+					(pokemon) => pokemon.id.length > 6
+				);
+				return {
+					...state,
+					pokemonsList: pokemonFilteredCreated,
+					createdPokemonFiltered: pokemonFilteredCreated,
+				};
+			}
+			return {
+				...state,
+				pokemonsList: currentPokemons3,
+				createdPokemonFiltered: currentPokemons3,
+			};
+
+		case "GET_NAME_POKEMON":
+			return {
+				...state,
+				pokemonsList: [action.payload],
 			};
 
 		default:

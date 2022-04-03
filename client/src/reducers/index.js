@@ -77,6 +77,45 @@ function rootReducer(state = initialState, action) {
 				typePokemonFiltered: currentPokemons,
 			};
 
+		case "FILTER_BY_STRENGTH":
+			const currentPokemons2 = [...state.typePokemonFiltered];
+			if (action.payload === "default") {
+				currentPokemons2.sort((obj1, obj2) => {
+					if (obj1.id < obj2.id) {
+						return -1;
+					} else {
+						return 1;
+					}
+				});
+			}
+			if (action.payload === "stronger") {
+				currentPokemons2.sort((obj1, obj2) => {
+					if (obj1.attack < obj2.attack) {
+						return 1;
+					} else if (obj1.attack > obj2.attack) {
+						return -1;
+					} else {
+						return 0;
+					}
+				});
+			}
+			if (action.payload === "weaker") {
+				currentPokemons2.sort((obj1, obj2) => {
+					if (obj1.attack < obj2.attack) {
+						return -1;
+					} else if (obj1.attack > obj2.attack) {
+						return 1;
+					} else {
+						return 0;
+					}
+				});
+			}
+			return {
+				...state,
+				typePokemonFiltered: currentPokemons2,
+				pokemonsList: currentPokemons2,
+			};
+
 		default:
 			return state;
 	}

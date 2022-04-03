@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllTypes, filterByTypes, filterByOrder } from "../../actions";
+import {
+	getAllTypes,
+	filterByTypes,
+	filterByOrder,
+	filterByStrength,
+} from "../../actions";
 
 const MenuFilter = ({ setCurrentPage }) => {
 	const dispatch = useDispatch();
@@ -19,6 +24,12 @@ const MenuFilter = ({ setCurrentPage }) => {
 	const handlerFilterByOrder = (e) => {
 		e.preventDefault();
 		dispatch(filterByOrder(e.target.value));
+		setCurrentPage(() => 1);
+	};
+
+	const handlerFilterByStrength = (e) => {
+		e.preventDefault();
+		dispatch(filterByStrength(e.target.value));
 		setCurrentPage(() => 1);
 	};
 
@@ -48,7 +59,7 @@ const MenuFilter = ({ setCurrentPage }) => {
 
 			<div>
 				<label>Order: </label>
-				<select id='filterOrder' onChange={(e) => handlerFilterByOrder(e)}>
+				<select onChange={(e) => handlerFilterByOrder(e)}>
 					<option value='pokedex'>pokedex</option>
 					<option value='ascending'>a-z</option>
 					<option value='descending'>z-a</option>
@@ -57,7 +68,7 @@ const MenuFilter = ({ setCurrentPage }) => {
 
 			<div>
 				<label>Tipo de fuerza: </label>
-				<select className='orden al renderizar'>
+				<select onChange={(e) => handlerFilterByStrength(e)}>
 					<option value='default'>default</option>
 					<option value='stronger'>stronger</option>
 					<option value='weaker'>weaker</option>

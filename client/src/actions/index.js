@@ -56,3 +56,10 @@ export function filterByOrder(payload) {
 		payload,
 	};
 }
+
+export function filterByStrength(payload) {
+	return {
+		type: "FILTER_BY_STRENGTH",
+		payload,
+	};
+}

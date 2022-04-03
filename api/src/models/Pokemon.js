@@ -30,7 +30,6 @@ module.exports = (sequelize) => {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 			},
-
 			speed: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
@@ -45,7 +44,7 @@ module.exports = (sequelize) => {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 			},
-			imagen: {
+			img: {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},

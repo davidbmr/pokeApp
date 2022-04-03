@@ -36,7 +36,7 @@ routerPokemons.get("/:id", async (req, res) => {
 
 routerPokemons.post("/", async (req, res) => {
 	try {
-		const { name, hp, attack, defense, speed, height, weight, imagen, types } =
+		const { name, hp, attack, defense, speed, height, weight, img, types } =
 			req.body;
 		const createPokemon = await Pokemon.create({
 			name,
@@ -46,7 +46,7 @@ routerPokemons.post("/", async (req, res) => {
 			speed,
 			height,
 			weight,
-			imagen,
+			img,
 		});
 
 		const typeDB = await Type.findAll({

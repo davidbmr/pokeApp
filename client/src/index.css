@@ -6,6 +6,10 @@
 li {
 	list-style: none;
 }
+a {
+	text-decoration: none;
+	color: #333;
+}
 body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",

@@ -86,3 +86,17 @@ export function getNamePokemon(name) {
 		}
 	};
 }
+
+export function getPokemonDetail(id) {
+	return async function (dispatch) {
+		try {
+			let pokeInfo = await axios.get(`http://localhost:3001/pokemons/${id}`);
+			return dispatch({
+				type: "GET_POKEMON_DETAILS",
+				payload: pokeInfo.data,
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	};
+}

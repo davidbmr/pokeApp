@@ -100,3 +100,13 @@ export function getPokemonDetail(id) {
 		}
 	};
 }
+
+export function createPokemon(payload) {
+	return async function (dispatch) {
+		const newPokemon = await axios.post(
+			"http://localhost:3001/pokemons",
+			payload
+		);
+		return newPokemon;
+	};
+}

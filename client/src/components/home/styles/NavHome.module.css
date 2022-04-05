@@ -1,0 +1,19 @@
+.navHomeContainer {
+	width: 100%;
+	height: 50px;
+	background: blue;
+	padding: 0 50px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.navHomeImg {
+	height: 50px;
+	background: tomato;
+}
+
+.navHomeButtonCreate {
+	background: white;
+	padding: 10px 15px;
+}

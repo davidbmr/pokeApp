@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPokemons } from "../actions";
+import NavHome from "../components/home/NavHome";
 import Card from "../components/home/Card";
 import MenuFilter from "../components/home/MenuFilter";
 import Paginated from "../components/home/Paginated";
@@ -35,7 +36,7 @@ const HomePage = () => {
 
 	return (
 		<div>
-			<h1>Pokemons</h1>
+			<NavHome />
 
 			<div className={style.subMenuContainer}>
 				<div className={style.searchContainer}>

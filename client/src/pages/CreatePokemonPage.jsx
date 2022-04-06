@@ -115,7 +115,9 @@ const CreatePokemonPage = () => {
 			img: "",
 			types: [],
 		});
-		navigate("/home");
+		setTimeout(() => {
+			navigate("/home");
+		}, 1000);
 	};
 
 	const [disabledButton, setDisabledButton] = useState(true);

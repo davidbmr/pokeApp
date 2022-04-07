@@ -1,0 +1,38 @@
+.landingContainer {
+	width: 100%;
+	height: 100vh;
+	display: grid;
+	place-items: center;
+	background-image: url("../../assets/FondoPokemonInicio.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.infoContainer {
+	width: 500px;
+	height: 250px;
+	color: #fff;
+	background-color: rgba(128, 128, 128, 0.3);
+	border: solid 1px rgba(128, 128, 128, 0.3);
+	border-radius: 10px;
+	backdrop-filter: blur(5px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+}
+
+.landingButton {
+	padding: 10px 20px;
+	color: #333;
+	border: solid 1px #fff;
+	border-radius: 5px;
+	background: #fff;
+}
+
+.landingButton:hover {
+	background-color: #333;
+	color: #fff;
+}

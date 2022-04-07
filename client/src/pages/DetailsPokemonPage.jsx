@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPokemonDetail } from "../actions/index";
+import { clearDetails, getPokemonDetail } from "../actions/index";
 import { useParams, Link } from "react-router-dom";
 import style from "./styles/DetailsPokemonPage.module.css";
 import TypesPokemonInfo from "../components/general/TypesPokemonInfo";
@@ -11,6 +11,7 @@ const DetailsPokemonPage = () => {
 	const { id } = useParams();
 
 	useEffect(() => {
+		dispatch(clearDetails());
 		dispatch(getPokemonDetail(id));
 	}, [dispatch, id]);
 

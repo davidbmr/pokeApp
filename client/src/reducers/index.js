@@ -164,6 +164,12 @@ function rootReducer(state = initialState, action) {
 				...state,
 			};
 
+		case "CLEAR_DETAILS":
+			return {
+				...state,
+				pokemon: action.payload,
+			};
+
 		default:
 			return state;
 	}

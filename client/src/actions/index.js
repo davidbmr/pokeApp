@@ -110,3 +110,10 @@ export function createPokemon(payload) {
 		return newPokemon;
 	};
 }
+
+export function clearDetails() {
+	return {
+		type: "CLEAR_DETAILS",
+		payload: {},
+	};
+}

@@ -11,14 +11,13 @@ routerType.get("/", async (req, res) => {
 
 		if (!typesDb.length) {
 			let typesAPI = await axios.get(`https://pokeapi.co/api/v2/type`);
-
 			typesAPI = await typesAPI.data.results.map((type) => {
 				return { name: type.name };
 			});
 
 			await Type.bulkCreate(typesAPI);
-
-			return res.status(200).json(typesAPI);
+			const newCallTypesDb = await Type.findAll();
+			return res.status(200).json(newCallTypesDb);
 		}
 
 		res.status(200).json(typesDb);

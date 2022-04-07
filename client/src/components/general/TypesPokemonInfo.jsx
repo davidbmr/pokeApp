@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./TypesPokemonInfo.module.css";
+import style from "./styles/TypesPokemonInfo.module.css";
 
 const TypesPokemonInfo = ({ types }) => {
 	return (

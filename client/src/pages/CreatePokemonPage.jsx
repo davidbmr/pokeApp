@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getAllTypes, createPokemon } from "../actions";
+import NavSecundary from "../components/general/NavSecundary";
 import style from "./styles/CreatePokemonPage.module.css";
 
 const CreatePokemonPage = () => {
@@ -25,6 +26,7 @@ const CreatePokemonPage = () => {
 		types: [],
 	});
 
+	console.log(newPokemon);
 	/**Errores */
 	const [error, setError] = useState({});
 
@@ -142,6 +144,7 @@ const CreatePokemonPage = () => {
 
 	return (
 		<div>
+			<NavSecundary />
 			<div className='container form'>
 				<form>
 					<div>

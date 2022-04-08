@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getAllTypes, createPokemon } from "../actions";
+import { getAllTypes, createPokemon, getAllPokemons } from "../actions";
 import NavSecundary from "../components/general/NavSecundary";
 import style from "./styles/CreatePokemonPage.module.css";
 
@@ -9,9 +9,10 @@ const CreatePokemonPage = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const allTypes = useSelector((state) => state.typesList);
-
+	const allPokemons = useSelector((state) => state.allPokemonsList);
 	useEffect(() => {
 		dispatch(getAllTypes());
+		dispatch(getAllPokemons());
 	}, [dispatch]);
 
 	const [newPokemon, setNewPokemon] = useState({
@@ -25,13 +26,13 @@ const CreatePokemonPage = () => {
 		img: "",
 		types: [],
 	});
-
-	console.log(newPokemon);
 	/**Errores */
 	const [error, setError] = useState({});
 
 	function validate(newPokemon) {
 		let errors = {};
+		if (allPokemons.find((pokemon) => pokemon.name === newPokemon.name))
+			errors.name = "Ese nombre ya esta en uso";
 		if (!newPokemon.name) errors.name = "Nombre Requerido";
 		if (newPokemon.hp < 1) errors.hp = "Agregar un numero en la vida!";
 		if (newPokemon.attack < 1) errors.attack = "Agrega un numero en el ataque!";
@@ -128,6 +129,7 @@ const CreatePokemonPage = () => {
 		if (
 			newPokemon.name.length === "" ||
 			newPokemon.types.length < 1 ||
+			error.hasOwnProperty("name") ||
 			error.hasOwnProperty("img") ||
 			error.hasOwnProperty("hp") ||
 			error.hasOwnProperty("attack") ||
@@ -143,21 +145,22 @@ const CreatePokemonPage = () => {
 	}, [error, newPokemon, setDisabledButton]);
 
 	return (
-		<div>
+		<div className={style.createPokemonContainer}>
 			<NavSecundary />
-			<div className='container form'>
-				<form>
-					<div>
-						<label>Nombre:</label>
+			<div className={style.formContainer}>
+				<form className={style.form}>
+					<h1 className={style.titleCreatePokemon}>Create a new pokemon</h1>
+					<div className={style.rowInfo}>
+						<label>Name:</label>
 						<input
 							type='text'
 							name='name'
 							value={newPokemon.name}
 							onChange={(e) => handlerChange(e)}
 						/>
-						{error.name && <p className={style.error}>{error.name}</p>}
 					</div>
-					<div>
+					{error.name && <p className={style.error}>{error.name}</p>}
+					<div className={style.rowInfo}>
 						<label>HP:</label>
 						<input
 							type='number'
@@ -165,9 +168,9 @@ const CreatePokemonPage = () => {
 							value={newPokemon.hp}
 							onChange={(e) => handlerChange(e)}
 						/>
-						{error.hp && <p className={style.error}>{error.hp}</p>}
 					</div>
-					<div>
+					{error.hp && <p className={style.error}>{error.hp}</p>}
+					<div className={style.rowInfo}>
 						<label>Attack:</label>
 						<input
 							type='number'
@@ -175,9 +178,9 @@ const CreatePokemonPage = () => {
 							value={newPokemon.attack}
 							onChange={(e) => handlerChange(e)}
 						/>
-						{error.attack && <p className={style.error}>{error.attack}</p>}
 					</div>
-					<div>
+					{error.attack && <p className={style.error}>{error.attack}</p>}
+					<div className={style.rowInfo}>
 						<label>Defense:</label>
 						<input
 							type='number'
@@ -185,9 +188,9 @@ const CreatePokemonPage = () => {
 							value={newPokemon.defense}
 							onChange={(e) => handlerChange(e)}
 						/>
-						{error.defense && <p className={style.error}>{error.defense}</p>}
 					</div>
-					<div>
+					{error.defense && <p className={style.error}>{error.defense}</p>}
+					<div className={style.rowInfo}>
 						<label>Speed:</label>
 						<input
 							type='number'
@@ -195,9 +198,9 @@ const CreatePokemonPage = () => {
 							value={newPokemon.speed}
 							onChange={(e) => handlerChange(e)}
 						/>
-						{error.speed && <p className={style.error}>{error.speed}</p>}
 					</div>
-					<div>
+					{error.speed && <p className={style.error}>{error.speed}</p>}
+					<div className={style.rowInfo}>
 						<label>Height:</label>
 						<input
 							type='number'
@@ -205,9 +208,9 @@ const CreatePokemonPage = () => {
 							value={newPokemon.height}
 							onChange={(e) => handlerChange(e)}
 						/>
-						{error.height && <p className={style.error}>{error.height}</p>}
 					</div>
-					<div>
+					{error.height && <p className={style.error}>{error.height}</p>}
+					<div className={style.rowInfo}>
 						<label>Weight:</label>
 						<input
 							type='number'
@@ -215,9 +218,9 @@ const CreatePokemonPage = () => {
 							value={newPokemon.weight}
 							onChange={(e) => handlerChange(e)}
 						/>
-						{error.weight && <p className={style.error}>{error.weight}</p>}
 					</div>
-					<div>
+					{error.weight && <p className={style.error}>{error.weight}</p>}
+					<div className={style.rowInfo}>
 						<label>Img:</label>
 						<input
 							type='text'
@@ -225,8 +228,8 @@ const CreatePokemonPage = () => {
 							value={newPokemon.img}
 							onChange={(e) => handlerChange(e)}
 						/>
-						{error.img && <p className={style.error}>{error.img}</p>}
 					</div>
+					{error.img && <p className={style.error}>{error.img}</p>}
 
 					<div>
 						<label>Choose first type:</label>
@@ -268,11 +271,12 @@ const CreatePokemonPage = () => {
 								})}
 							<option value='removeType'>Remove second type</option>
 						</select>
-						<ul>
+						{/* <ul>
 							<li>{newPokemon.types.map((type) => type + " ,")}</li>
-						</ul>
+						</ul> */}
 					</div>
 					<button
+						className={style.buttonCreatePokemon}
 						disabled={disabledButton}
 						onClick={(e) => handlerCreatePokemon(e)}
 					>

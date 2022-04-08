@@ -31,21 +31,22 @@ const DetailsPokemonPage = () => {
 						/>
 						<TypesPokemonInfo types={pokemonInfo.types} />
 					</div>
+
 					<div className={style.pokeInfoDetailsContainer}>
 						<div className={style.tableInfoContainer}>
-							<h1>{pokemonInfo.name}</h1>
-							<div>N° {pokemonInfo.id}</div>
+							<h1 className={style.titleInfo}>{pokemonInfo.name}</h1>
+							<p>ID: {pokemonInfo.id}</p>
 							<div className={style.rowInfo}>
-								<div>HP: {pokemonInfo.hp}</div>
-								<div>Attack: {pokemonInfo.attack}</div>
+								<p>HP: {pokemonInfo.hp}</p>
+								<p>Attack: {pokemonInfo.attack}</p>
 							</div>
 							<div className={style.rowInfo}>
-								<div>Defense: {pokemonInfo.defense}</div>
-								<div>Speed: {pokemonInfo.speed}</div>
+								<p>Defense: {pokemonInfo.defense}</p>
+								<p>Speed: {pokemonInfo.speed}</p>
 							</div>
 							<div className={style.rowInfo}>
-								<div>Height: {pokemonInfo.height}</div>
-								<div>Weight: {pokemonInfo.weight}</div>
+								<p>Height: {pokemonInfo.height}</p>
+								<p>Weight: {pokemonInfo.weight}</p>
 							</div>
 						</div>
 					</div>

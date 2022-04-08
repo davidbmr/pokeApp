@@ -8,55 +8,58 @@
 .type {
 	color: white;
 	font-size: 14px;
-	padding: 3px 10px;
+	padding: 3px 15px 5px 15px;
 	border-radius: 10px;
 }
 
 .type[value="grass"] {
-	background-color: #5ebd5b;
+	background-color: #64b33f;
 }
 .type[value="fire"] {
-	background: #e48621;
+	background: #e26e1a;
 }
 .type[value="water"] {
-	background-color: #096fc8;
+	background-color: #4776ec;
 }
 .type[value="ground"] {
-	background-color: #c7b78a;
+	background-color: #d9b043;
 }
 .type[value="electric"] {
-	background-color: #f0d84a;
+	background-color: #f2c412;
 }
 .type[value="flying"] {
-	background-color: #ef97e6;
+	background-color: #9685cf;
 }
 .type[value="poison"] {
-	background-color: #7c3c8b;
+	background-color: #893688;
 }
 .type[value="normal"] {
-	background-color: #979ba2;
+	background-color: #939260;
 }
 .type[value="psychic"] {
-	background-color: #f77676;
+	background-color: #f7316b;
 }
 .type[value="dragon"] {
-	background-color: #d3425f;
+	background-color: #5819f3;
 }
 .type[value="ice"] {
-	background-color: #4f96de;
+	background-color: #73caca;
 }
 .type[value="rock"] {
-	background-color: #da7b4b;
+	background-color: #a08b31;
 }
 .type[value="bug"] {
-	background-color: #97be2e;
+	background-color: #919f1c;
 }
 .type[value="ghost"] {
-	background-color: #5c6db7;
+	background-color: #5c497f;
 }
 .type[value="fighting"] {
-	background: #db9953;
+	background: #a62a22;
 }
 .type[value="fairy"] {
-	background: rgb(244, 217, 208);
+	background: #f656ff;
+}
+.type[value="dark"] {
+	background: #5c493a;
 }

@@ -1,12 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logoPokemon from "../../assets/logoPokemon.png";
+import LogoImg from "../../assets/LogoImg.png";
 import style from "./styles/NavHome.module.css";
+import SearchBar from "./SearchBar";
 
-const NavHome = () => {
+const NavHome = ({ setCurrentPage }) => {
 	return (
 		<div className={style.navHomeContainer}>
-			<img className={style.navHomeImg} src={logoPokemon} alt='logo-pokemon' />
+			<div className={style.navHomeLogo}>
+				<img className={style.logoImg} src={LogoImg} alt='logo-pokemon' />
+				POKEAPP
+			</div>
+			<div className={style.searchContainer}>
+				<SearchBar setCurrentPage={setCurrentPage} />
+			</div>
 			<Link className={style.navHomeButtonCreate} to='/create-pokemon/'>
 				CREAR POKEMON
 			</Link>

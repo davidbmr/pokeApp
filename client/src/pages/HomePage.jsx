@@ -6,7 +6,6 @@ import NavHome from "../components/home/NavHome";
 import Card from "../components/home/Card";
 import MenuFilter from "../components/home/MenuFilter";
 import Paginated from "../components/home/Paginated";
-import SearchBar from "../components/home/SearchBar";
 import style from "./styles/HomePage.module.css";
 
 const HomePage = () => {
@@ -35,19 +34,16 @@ const HomePage = () => {
 	/**Final del paginado */
 
 	return (
-		<div>
-			<NavHome />
+		<div className={style.homeContainer}>
+			<div className={style.menuContainer}>
+				<NavHome setCurrentPage={setCurrentPage} />
 
-			<div className={style.subMenuContainer}>
-				<div className={style.searchContainer}>
-					<SearchBar setCurrentPage={setCurrentPage} />
-				</div>
-				<div className={style.filtersContainer}>
-					<MenuFilter setCurrentPage={setCurrentPage} />
+				<div className={style.subMenuContainer}>
+					<div className={style.filtersContainer}>
+						<MenuFilter setCurrentPage={setCurrentPage} />
+					</div>
 				</div>
 			</div>
-
-			<hr />
 
 			<div className={style.pokeListContainer}>
 				<div className={style.paginatedList}>

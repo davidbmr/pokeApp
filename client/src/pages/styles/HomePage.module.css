@@ -1,6 +1,17 @@
-h1 {
-	text-align: center;
-	margin: 10px 0;
+.homeContainer {
+	width: 100%;
+	min-height: 100vh;
+	background-image: url("../../assets/FondoPokemonHome.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+}
+
+.menuContainer {
+	background-color: rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(10px);
 }
 
 .subMenuContainer {
@@ -13,8 +24,8 @@ h1 {
 .filtersContainer {
 	display: flex;
 	justify-content: center;
-	gap: 20px;
-	margin: 10px 0;
+	gap: 10px;
+	margin: 0 0 10px 0;
 }
 
 .paginatedList {

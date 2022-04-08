@@ -1,19 +1,33 @@
 .navHomeContainer {
 	width: 100%;
-	height: 50px;
-	background: blue;
-	padding: 0 50px;
+	padding: 10px 50px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.navHomeImg {
-	height: 50px;
-	background: tomato;
+.navHomeLogo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.logoImg {
+	height: 35px;
 }
 
 .navHomeButtonCreate {
-	background: white;
-	padding: 10px 15px;
+	padding: 10px 20px;
+	color: #333;
+	border: solid 1px #fff;
+	border-radius: 5px;
+	background: #fff;
+}
+
+.navHomeButtonCreate:hover {
+	background-color: #333;
+	color: #fff;
 }

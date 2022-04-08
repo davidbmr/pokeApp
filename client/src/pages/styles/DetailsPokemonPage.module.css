@@ -49,6 +49,10 @@
 	width: 100%;
 	padding: 10px;
 	background-color: rgba(255, 255, 255, 0.1);
+	text-align: center;
+}
+.titleInfo::first-letter {
+	text-transform: uppercase;
 }
 
 .rowInfo {

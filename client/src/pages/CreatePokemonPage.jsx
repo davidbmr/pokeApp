@@ -63,6 +63,7 @@ const CreatePokemonPage = () => {
 			...newPokemon,
 			[e.target.name]: e.target.value,
 		});
+
 		setError(
 			validate({
 				//validamos los errores
@@ -71,7 +72,7 @@ const CreatePokemonPage = () => {
 			})
 		);
 	};
-
+	console.log(newPokemon);
 	const handlerFirstSelect = (e) => {
 		if (newPokemon.types.length <= 1) {
 			setNewPokemon({

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./styles/Paginated.module.css";
+import style from "./styles/Paginated.module.css";
 
 const Paginated = ({ pageNumber, amountPerPage, totalAmount, currentPage }) => {
 	const pageNumbers = [];
@@ -18,9 +18,9 @@ const Paginated = ({ pageNumber, amountPerPage, totalAmount, currentPage }) => {
 	};
 
 	return (
-		<div>
+		<div className={style.paginatedContainer}>
 			<div>
-				<button className={styles.currentButton} onClick={() => prevHandler()}>
+				<button className={style.currentButton} onClick={() => prevHandler()}>
 					Prev
 				</button>
 				{pageNumbers &&
@@ -28,14 +28,14 @@ const Paginated = ({ pageNumber, amountPerPage, totalAmount, currentPage }) => {
 						return (
 							<button
 								key={num}
-								className={styles.numberButton}
+								className={style.numberButton}
 								onClick={() => pageNumber(num)}
 							>
 								{num}
 							</button>
 						);
 					})}
-				<button className={styles.currentButton} onClick={() => nextHandler()}>
+				<button className={style.currentButton} onClick={() => nextHandler()}>
 					Next
 				</button>
 			</div>

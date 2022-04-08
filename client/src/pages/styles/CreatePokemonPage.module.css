@@ -1,5 +1,5 @@
 .error {
-	color: tomato;
+	color: purple;
 	font-size: 12px;
 }
 
@@ -21,29 +21,51 @@
 }
 
 .form {
+	width: 750px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 5px 50px 20px 50px;
+	padding: 10px 50px 20px 50px;
 	background-color: rgba(255, 255, 255, 0.4);
 	border-radius: 15px;
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(10px);
 	font-weight: 500;
 	gap: 5px;
 }
 
 .titleCreatePokemon {
-	margin: 10px 5px;
+	margin: 20px 5px;
 	font-size: 25px;
 }
 
-.buttonCreatePokemon {
-	padding: 10px;
+.columnsContainer {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.columnInfo {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
 }
 
 .rowInfo {
 	display: flex;
 	justify-content: space-between;
-	width: 80%;
+	width: 90%;
+}
+
+.buttonCreatePokemon {
+	padding: 15px 20px;
+	margin: 20px 0 10px 0;
+	border-radius: 10px;
+	border: solid 1px #333;
+	background-color: #333;
+	color: #fff;
+}
+
+.buttonCreatePokemon:hover {
+	background-color: transparent;
+	color: #333;
 }

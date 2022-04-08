@@ -31,18 +31,29 @@ const CreatePokemonPage = () => {
 
 	function validate(newPokemon) {
 		let errors = {};
-		if (allPokemons.find((pokemon) => pokemon.name === newPokemon.name))
-			errors.name = "Ese nombre ya esta en uso";
-		if (!newPokemon.name) errors.name = "Nombre Requerido";
-		if (newPokemon.hp < 1) errors.hp = "Agregar un numero en la vida!";
-		if (newPokemon.attack < 1) errors.attack = "Agrega un numero en el ataque!";
+		if (
+			allPokemons.find(
+				(pokemon) =>
+					pokemon.name.toUpperCase() === newPokemon.name.toUpperCase()
+			)
+		)
+			errors.name =
+				"Ya existe un pokemon con ese nombre, prueba con escoger otro";
+		if (!newPokemon.name)
+			errors.name = "Tu poke necesita un nombre, escoge el mejor";
+		if (newPokemon.hp < 1)
+			errors.hp = "No te olvides de colocar la vida de tu poke";
+		if (newPokemon.attack < 1)
+			errors.attack = "Coloca que tan poderoso es tu poke";
 		if (newPokemon.defense < 1)
-			errors.defense = "Agrega un numero en la defensa!";
-		if (newPokemon.speed < 1)
-			errors.speed = "Agrega un numero en la velocidad!";
-		if (newPokemon.height < 1) errors.height = "Agrega un numero en el tamaño!";
-		if (newPokemon.weight < 1) errors.weight = "Agrega un numero en el peso!";
-		if (!newPokemon.img) errors.img = "Se requiere una URL de la imagen";
+			errors.defense = "Coloca que tan resistente es tu poke";
+		if (newPokemon.speed < 1) errors.speed = "Coloca que tan rapido es tu poke";
+		if (newPokemon.height < 1)
+			errors.height = "No te olvides colocar que tan grande es tu poke";
+		if (newPokemon.weight < 1)
+			errors.weight = "Cuentanos que tan pesado es tu poke";
+		if (!newPokemon.img)
+			errors.img = "Se requiere una URL para la imagen de tu poke";
 		return errors;
 	}
 
@@ -150,134 +161,150 @@ const CreatePokemonPage = () => {
 			<div className={style.formContainer}>
 				<form className={style.form}>
 					<h1 className={style.titleCreatePokemon}>Create a new pokemon</h1>
-					<div className={style.rowInfo}>
-						<label>Name:</label>
-						<input
-							type='text'
-							name='name'
-							value={newPokemon.name}
-							onChange={(e) => handlerChange(e)}
-						/>
-					</div>
-					{error.name && <p className={style.error}>{error.name}</p>}
-					<div className={style.rowInfo}>
-						<label>HP:</label>
-						<input
-							type='number'
-							name='hp'
-							value={newPokemon.hp}
-							onChange={(e) => handlerChange(e)}
-						/>
-					</div>
-					{error.hp && <p className={style.error}>{error.hp}</p>}
-					<div className={style.rowInfo}>
-						<label>Attack:</label>
-						<input
-							type='number'
-							name='attack'
-							value={newPokemon.attack}
-							onChange={(e) => handlerChange(e)}
-						/>
-					</div>
-					{error.attack && <p className={style.error}>{error.attack}</p>}
-					<div className={style.rowInfo}>
-						<label>Defense:</label>
-						<input
-							type='number'
-							name='defense'
-							value={newPokemon.defense}
-							onChange={(e) => handlerChange(e)}
-						/>
-					</div>
-					{error.defense && <p className={style.error}>{error.defense}</p>}
-					<div className={style.rowInfo}>
-						<label>Speed:</label>
-						<input
-							type='number'
-							name='speed'
-							value={newPokemon.speed}
-							onChange={(e) => handlerChange(e)}
-						/>
-					</div>
-					{error.speed && <p className={style.error}>{error.speed}</p>}
-					<div className={style.rowInfo}>
-						<label>Height:</label>
-						<input
-							type='number'
-							name='height'
-							value={newPokemon.height}
-							onChange={(e) => handlerChange(e)}
-						/>
-					</div>
-					{error.height && <p className={style.error}>{error.height}</p>}
-					<div className={style.rowInfo}>
-						<label>Weight:</label>
-						<input
-							type='number'
-							name='weight'
-							value={newPokemon.weight}
-							onChange={(e) => handlerChange(e)}
-						/>
-					</div>
-					{error.weight && <p className={style.error}>{error.weight}</p>}
-					<div className={style.rowInfo}>
-						<label>Img:</label>
-						<input
-							type='text'
-							name='img'
-							value={newPokemon.img}
-							onChange={(e) => handlerChange(e)}
-						/>
-					</div>
-					{error.img && <p className={style.error}>{error.img}</p>}
 
-					<div>
-						<label>Choose first type:</label>
-						<select
-							defaultValue={"DEFAULT"}
-							onChange={(e) => handlerFirstSelect(e)}
-						>
-							<option value='DEFAULT' disabled>
-								Choose first type
-							</option>
-							{allTypes &&
-								allTypes.map((type) => {
-									return (
-										<option key={type.name} value={type.name}>
-											{type.name}
-										</option>
-									);
-								})}
-						</select>
-						{error.types && <p className={style.error}>{error.types}</p>}
+					<div className={style.columnsContainer}>
+						{/**PRIMERA COLUMNA */}
+						<div className={style.columnInfo}>
+							<div className={style.rowInfo}>
+								<label>Name:</label>
+								<input
+									type='text'
+									name='name'
+									value={newPokemon.name}
+									placeholder='Ejm: david'
+									onChange={(e) => handlerChange(e)}
+								/>
+							</div>
+							{error.name && <p className={style.error}>{error.name}</p>}
+							<div className={style.rowInfo}>
+								<label>HP:</label>
+								<input
+									type='number'
+									name='hp'
+									placeholder='Ejm: 12'
+									value={newPokemon.hp}
+									onChange={(e) => handlerChange(e)}
+								/>
+							</div>
+							{error.hp && <p className={style.error}>{error.hp}</p>}
+							<div className={style.rowInfo}>
+								<label>Attack:</label>
+								<input
+									type='number'
+									name='attack'
+									placeholder='Ejm: 12'
+									value={newPokemon.attack}
+									onChange={(e) => handlerChange(e)}
+								/>
+							</div>
+							{error.attack && <p className={style.error}>{error.attack}</p>}
+							<div className={style.rowInfo}>
+								<label>Defense:</label>
+								<input
+									type='number'
+									name='defense'
+									placeholder='Ejm: 12'
+									value={newPokemon.defense}
+									onChange={(e) => handlerChange(e)}
+								/>
+							</div>
+							{error.defense && <p className={style.error}>{error.defense}</p>}
+							<div className={style.rowInfo}>
+								<label>Speed:</label>
+								<input
+									type='number'
+									name='speed'
+									placeholder='Ejm: 12'
+									value={newPokemon.speed}
+									onChange={(e) => handlerChange(e)}
+								/>
+							</div>
+							{error.speed && <p className={style.error}>{error.speed}</p>}
+						</div>
+
+						{/**SEGUNDA COLUMNA */}
+						<div className={style.columnInfo}>
+							<div className={style.rowInfo}>
+								<label>Height:</label>
+								<input
+									type='number'
+									name='height'
+									placeholder='Ejm: 12'
+									value={newPokemon.height}
+									onChange={(e) => handlerChange(e)}
+								/>
+							</div>
+							{error.height && <p className={style.error}>{error.height}</p>}
+							<div className={style.rowInfo}>
+								<label>Weight:</label>
+								<input
+									type='number'
+									name='weight'
+									placeholder='Ejm: 12'
+									value={newPokemon.weight}
+									onChange={(e) => handlerChange(e)}
+								/>
+							</div>
+							{error.weight && <p className={style.error}>{error.weight}</p>}
+							<div className={style.rowInfo}>
+								<label>Img:</label>
+								<input
+									type='text'
+									name='img'
+									placeholder='Url de tu imagen'
+									value={newPokemon.img}
+									onChange={(e) => handlerChange(e)}
+								/>
+							</div>
+							{error.img && <p className={style.error}>{error.img}</p>}
+
+							<div className={style.selectInfo}>
+								<label>Choose first type:</label>
+								<select
+									defaultValue={"DEFAULT"}
+									onChange={(e) => handlerFirstSelect(e)}
+								>
+									<option value='DEFAULT' disabled>
+										Choose first type
+									</option>
+									{allTypes &&
+										allTypes.map((type) => {
+											return (
+												<option key={type.name} value={type.name}>
+													{type.name}
+												</option>
+											);
+										})}
+								</select>
+								{error.types && <p className={style.error}>{error.types}</p>}
+							</div>
+
+							<div className={style.selectInfo}>
+								<label>Choose second type:</label>
+								<select
+									defaultValue={"DEFAULT"}
+									onChange={(e) => handlerSecondSelect(e)}
+								>
+									<option value='DEFAULT' disabled>
+										Second type
+									</option>
+									{allTypes &&
+										allTypes.map((type) => {
+											return (
+												<option key={type.name} value={type.name}>
+													{type.name}
+												</option>
+											);
+										})}
+									<option value='removeType'>Remove second type</option>
+								</select>
+							</div>
+						</div>
 					</div>
 
-					<div>
-						<label>Choose second type:</label>
-						<select
-							defaultValue={"DEFAULT"}
-							onChange={(e) => handlerSecondSelect(e)}
-						>
-							<option value='DEFAULT' disabled>
-								Second type
-							</option>
-							{allTypes &&
-								allTypes.map((type) => {
-									return (
-										<option key={type.name} value={type.name}>
-											{type.name}
-										</option>
-									);
-								})}
-							<option value='removeType'>Remove second type</option>
-						</select>
-						{/* <ul>
-							<li>{newPokemon.types.map((type) => type + " ,")}</li>
-						</ul> */}
-					</div>
 					<button
-						className={style.buttonCreatePokemon}
 						disabled={disabledButton}
+						className={style.buttonCreatePokemon}
 						onClick={(e) => handlerCreatePokemon(e)}
 					>
 						CREAR POKEMON

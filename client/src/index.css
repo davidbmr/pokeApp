@@ -10,6 +10,34 @@ a {
 	text-decoration: none;
 	color: #333;
 }
+input,
+select {
+	outline: none;
+}
+button {
+	cursor: pointer;
+}
+button:disabled,
+button[disabled],
+button[disabled]:hover {
+	border: 1px solid #999999;
+	background-color: #cccccc;
+	color: #666666;
+	cursor: default;
+}
+
+input,
+select {
+	padding: 5px 10px;
+	border: solid 1px #333;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+select {
+	margin-left: 5px;
+}
+
 body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",

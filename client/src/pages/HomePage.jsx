@@ -7,10 +7,12 @@ import Card from "../components/home/Card";
 import MenuFilter from "../components/home/MenuFilter";
 import Paginated from "../components/home/Paginated";
 import style from "./styles/HomePage.module.css";
+import Loading from "../components/general/Loading";
 
 const HomePage = () => {
 	const dispatch = useDispatch();
 	const allPokemons = useSelector((state) => state.pokemonsList);
+	const loading = useSelector((state) => state.loading);
 
 	useEffect(() => {
 		dispatch(getAllPokemons());
@@ -34,39 +36,45 @@ const HomePage = () => {
 	/**Final del paginado */
 
 	return (
-		<div className={style.homeContainer}>
-			<div className={style.menuContainer}>
-				<NavHome setCurrentPage={setCurrentPage} />
+		<>
+			{loading ? (
+				<Loading />
+			) : (
+				<div className={style.homeContainer}>
+					<div className={style.menuContainer}>
+						<NavHome setCurrentPage={setCurrentPage} />
 
-				<div className={style.subMenuContainer}>
-					<div className={style.filtersContainer}>
-						<MenuFilter setCurrentPage={setCurrentPage} />
+						<div className={style.subMenuContainer}>
+							<div className={style.filtersContainer}>
+								<MenuFilter setCurrentPage={setCurrentPage} />
+							</div>
+						</div>
+					</div>
+
+					<div className={style.pokeListContainer}>
+						<div className={style.paginatedList}>
+							<Paginated
+								currentPage={currentPage}
+								pageNumber={pages}
+								amountPerPage={pokemonsPerPage}
+								totalAmount={allPokemons.length}
+							/>
+						</div>
+						<ul className={style.pokeList}>
+							{currentPokemons?.map((pokemon) => (
+								<Card
+									key={pokemon.id}
+									id={pokemon.id}
+									name={pokemon.name}
+									img={pokemon.img}
+									types={pokemon.types}
+								/>
+							))}
+						</ul>
 					</div>
 				</div>
-			</div>
-
-			<div className={style.pokeListContainer}>
-				<div className={style.paginatedList}>
-					<Paginated
-						currentPage={currentPage}
-						pageNumber={pages}
-						amountPerPage={pokemonsPerPage}
-						totalAmount={allPokemons.length}
-					/>
-				</div>
-				<ul className={style.pokeList}>
-					{currentPokemons?.map((pokemon) => (
-						<Card
-							key={pokemon.id}
-							id={pokemon.id}
-							name={pokemon.name}
-							img={pokemon.img}
-							types={pokemon.types}
-						/>
-					))}
-				</ul>
-			</div>
-		</div>
+			)}
+		</>
 	);
 };
 

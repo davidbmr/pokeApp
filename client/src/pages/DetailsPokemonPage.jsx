@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import style from "./styles/DetailsPokemonPage.module.css";
 import TypesPokemonInfo from "../components/general/TypesPokemonInfo";
 import NavSecundary from "../components/general/NavSecundary";
+import Loading from "../components/general/Loading";
 
 const DetailsPokemonPage = () => {
 	const dispatch = useDispatch();
@@ -17,44 +18,48 @@ const DetailsPokemonPage = () => {
 	}, [dispatch, id]);
 
 	const pokemonInfo = useSelector((state) => state.pokemon);
+	const loading = useSelector((state) => state.loading);
 
 	return (
-		<div className={style.detailsContainer}>
-			<NavSecundary />
-			{pokemonInfo ? (
-				<div className={style.pokeInfoContainer}>
-					<div className={style.pokeInfoImgContainer}>
-						<img
-							className={style.pokeInfoImg}
-							src={pokemonInfo.img}
-							alt={pokemonInfo.name}
-						/>
-						<TypesPokemonInfo types={pokemonInfo.types} />
-					</div>
+		<>
+			{loading ? (
+				<Loading />
+			) : (
+				<div className={style.detailsContainer}>
+					<NavSecundary />
 
-					<div className={style.pokeInfoDetailsContainer}>
-						<div className={style.tableInfoContainer}>
-							<h1 className={style.titleInfo}>{pokemonInfo.name}</h1>
-							<p>ID: {pokemonInfo.id}</p>
-							<div className={style.rowInfo}>
-								<p>HP: {pokemonInfo.hp}</p>
-								<p>Attack: {pokemonInfo.attack}</p>
-							</div>
-							<div className={style.rowInfo}>
-								<p>Defense: {pokemonInfo.defense}</p>
-								<p>Speed: {pokemonInfo.speed}</p>
-							</div>
-							<div className={style.rowInfo}>
-								<p>Height: {pokemonInfo.height}</p>
-								<p>Weight: {pokemonInfo.weight}</p>
+					<div className={style.pokeInfoContainer}>
+						<div className={style.pokeInfoImgContainer}>
+							<img
+								className={style.pokeInfoImg}
+								src={pokemonInfo.img}
+								alt={pokemonInfo.name}
+							/>
+							<TypesPokemonInfo types={pokemonInfo.types} />
+						</div>
+
+						<div className={style.pokeInfoDetailsContainer}>
+							<div className={style.tableInfoContainer}>
+								<h1 className={style.titleInfo}>{pokemonInfo.name}</h1>
+								<p>ID: {pokemonInfo.id}</p>
+								<div className={style.rowInfo}>
+									<p>HP: {pokemonInfo.hp}</p>
+									<p>Attack: {pokemonInfo.attack}</p>
+								</div>
+								<div className={style.rowInfo}>
+									<p>Defense: {pokemonInfo.defense}</p>
+									<p>Speed: {pokemonInfo.speed}</p>
+								</div>
+								<div className={style.rowInfo}>
+									<p>Height: {pokemonInfo.height}</p>
+									<p>Weight: {pokemonInfo.weight}</p>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			) : (
-				<div>cargando</div>
 			)}
-		</div>
+		</>
 	);
 };
 

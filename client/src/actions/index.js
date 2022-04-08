@@ -2,6 +2,9 @@ import axios from "axios";
 
 export function getAllPokemons() {
 	return async function (dispatch) {
+		dispatch({
+			type: "POKEMON_LIST_LOADING",
+		});
 		try {
 			let pokemonList = await axios.get("http://localhost:3001/pokemons");
 
@@ -29,19 +32,19 @@ export function getAllTypes() {
 	};
 }
 
-export function getPokemonById(id) {
-	return async function (dispatch) {
-		try {
-			let pokemon = await axios.get(`http://localhost:3001/pokemons/${id}`);
-			return dispatch({
-				type: "GET_POKE_BY_ID",
-				payload: pokemon.data,
-			});
-		} catch (error) {
-			console.log(error);
-		}
-	};
-}
+// export function getPokemonById(id) {
+// 	return async function (dispatch) {
+// 		try {
+// 			let pokemon = await axios.get(`http://localhost:3001/pokemons/${id}`);
+// 			return dispatch({
+// 				type: "GET_POKE_BY_ID",
+// 				payload: pokemon.data,
+// 			});
+// 		} catch (error) {
+// 			console.log(error);
+// 		}
+// 	};
+// }
 
 export function filterByTypes(payload) {
 	return {
@@ -89,6 +92,9 @@ export function getNamePokemon(name) {
 
 export function getPokemonDetail(id) {
 	return async function (dispatch) {
+		dispatch({
+			type: "POKEMON_LIST_LOADING",
+		});
 		try {
 			let pokeInfo = await axios.get(`http://localhost:3001/pokemons/${id}`);
 			return dispatch({

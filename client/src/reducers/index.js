@@ -5,10 +5,17 @@ const initialState = {
 	typePokemonFiltered: [],
 	pokemon: {},
 	typesList: [],
+	loading: false,
 };
 
 function rootReducer(state = initialState, action) {
 	switch (action.type) {
+		case "POKEMON_LIST_LOADING":
+			return {
+				...state,
+				loading: true,
+			};
+
 		case "GET_ALL_POKEMONS":
 			return {
 				...state,
@@ -16,6 +23,7 @@ function rootReducer(state = initialState, action) {
 				allPokemonsList: [...action.payload],
 				typePokemonFiltered: [...action.payload],
 				createdPokemonFiltered: [...action.payload],
+				loading: false,
 			};
 		case "GET_ALL_TYPES":
 			return {
@@ -157,6 +165,7 @@ function rootReducer(state = initialState, action) {
 			return {
 				...state,
 				pokemon: action.payload,
+				loading: false,
 			};
 
 		case "CREATE_POKEMON":

@@ -11,6 +11,19 @@
 	font-size: 12px;
 }
 
+.buttonActive {
+	width: 25px;
+	height: 25px;
+	margin: 5px 5px;
+	border-radius: 50%;
+	font-size: 12px;
+
+	background: tomato;
+	color: white;
+	border: solid 1px tomato;
+	cursor: pointer;
+}
+
 .numberButton:hover,
 .currentButton:hover {
 	background: tomato;

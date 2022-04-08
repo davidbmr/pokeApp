@@ -28,7 +28,9 @@ const Paginated = ({ pageNumber, amountPerPage, totalAmount, currentPage }) => {
 						return (
 							<button
 								key={num}
-								className={style.numberButton}
+								className={
+									currentPage === num ? style.buttonActive : style.numberButton
+								}
 								onClick={() => pageNumber(num)}
 							>
 								{num}

@@ -10,6 +10,7 @@ const CreatePokemonPage = () => {
 	const navigate = useNavigate();
 	const allTypes = useSelector((state) => state.typesList);
 	const allPokemons = useSelector((state) => state.allPokemonsList);
+
 	useEffect(() => {
 		dispatch(getAllTypes());
 		dispatch(getAllPokemons());
@@ -26,6 +27,7 @@ const CreatePokemonPage = () => {
 		img: "",
 		types: [],
 	});
+
 	/**Errores */
 	const [error, setError] = useState({});
 
@@ -72,7 +74,7 @@ const CreatePokemonPage = () => {
 			})
 		);
 	};
-	console.log(newPokemon);
+
 	const handlerFirstSelect = (e) => {
 		if (newPokemon.types.length <= 1) {
 			setNewPokemon({
@@ -139,7 +141,7 @@ const CreatePokemonPage = () => {
 
 	useEffect(() => {
 		if (
-			newPokemon.name.length === "" ||
+			newPokemon.name === "" ||
 			newPokemon.types.length < 1 ||
 			error.hasOwnProperty("name") ||
 			error.hasOwnProperty("img") ||

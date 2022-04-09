@@ -25,6 +25,14 @@ function rootReducer(state = initialState, action) {
 				createdPokemonFiltered: [...action.payload],
 				loading: false,
 			};
+
+		case "GET_POKEMON_DETAILS":
+			return {
+				...state,
+				pokemon: action.payload,
+				loading: false,
+			};
+
 		case "GET_ALL_TYPES":
 			return {
 				...state,
@@ -159,13 +167,6 @@ function rootReducer(state = initialState, action) {
 			return {
 				...state,
 				pokemonsList: [action.payload],
-			};
-
-		case "GET_POKEMON_DETAILS":
-			return {
-				...state,
-				pokemon: action.payload,
-				loading: false,
 			};
 
 		case "CREATE_POKEMON":

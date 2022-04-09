@@ -15,6 +15,7 @@ const SearchBar = ({ setCurrentPage }) => {
 
 	const handlerSubmit = (e) => {
 		e.preventDefault();
+
 		dispatch(getNamePokemon(name));
 		setCurrentPage(() => 1);
 		setName("");

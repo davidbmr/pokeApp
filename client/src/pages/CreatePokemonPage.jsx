@@ -43,6 +43,13 @@ const CreatePokemonPage = () => {
 				"Ya existe un pokemon con ese nombre, prueba con escoger otro";
 		if (!newPokemon.name)
 			errors.name = "Tu poke necesita un nombre, escoge el mejor";
+		if (/[1-9]/.test(newPokemon.name))
+			errors.name = "El nombre de tu poke no puede contener numeros";
+		if (/[\s]/.test(newPokemon.name))
+			errors.name = "El nombre de tu poke no puede contener espacios";
+		if (/[^\w\s]/.test(newPokemon.name))
+			errors.name =
+				"El nombre de tu poke no puede contener caracteres especiales";
 		if (newPokemon.hp < 1)
 			errors.hp = "No te olvides de colocar la vida de tu poke";
 		if (newPokemon.attack < 1)
@@ -54,6 +61,9 @@ const CreatePokemonPage = () => {
 			errors.height = "No te olvides colocar que tan grande es tu poke";
 		if (newPokemon.weight < 1)
 			errors.weight = "Cuentanos que tan pesado es tu poke";
+
+		if (!/\.(jpg|png|gif)$/i.test(newPokemon.img))
+			errors.img = "La url que intentas colocar no es valida";
 		if (!newPokemon.img)
 			errors.img = "Se requiere una URL para la imagen de tu poke";
 		return errors;

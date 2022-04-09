@@ -8,6 +8,7 @@ import MenuFilter from "../components/home/MenuFilter";
 import Paginated from "../components/home/Paginated";
 import style from "./styles/HomePage.module.css";
 import Loading from "../components/general/Loading";
+import NoResults from "../components/home/NoResults";
 
 const HomePage = () => {
 	const dispatch = useDispatch();
@@ -61,15 +62,19 @@ const HomePage = () => {
 							/>
 						</div>
 						<ul className={style.pokeList}>
-							{currentPokemons?.map((pokemon) => (
-								<Card
-									key={pokemon.id}
-									id={pokemon.id}
-									name={pokemon.name}
-									img={pokemon.img}
-									types={pokemon.types}
-								/>
-							))}
+							{currentPokemons[0] !== "" && currentPokemons.length > 0 ? (
+								currentPokemons.map((pokemon) => (
+									<Card
+										key={pokemon.id}
+										id={pokemon.id}
+										name={pokemon.name}
+										img={pokemon.img}
+										types={pokemon.types}
+									/>
+								))
+							) : (
+								<NoResults />
+							)}
 						</ul>
 					</div>
 				</div>

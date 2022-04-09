@@ -6,7 +6,7 @@ const NavSecundary = () => {
 	return (
 		<nav className={style.navSecondaryContainer}>
 			<Link className={style.linkNavSecondary} to='/home'>
-				REGRESAR AL INICIO
+				REGRESAR AL HOME
 			</Link>
 		</nav>
 	);

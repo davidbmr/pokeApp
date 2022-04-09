@@ -1,0 +1,19 @@
+.noResultsContainer {
+	position: absolute;
+	left: 0;
+	top: 35%;
+	width: 100%;
+	text-align: center;
+}
+
+.noResultsText {
+	color: #fff;
+	margin-bottom: 25px;
+	text-shadow: 2px 2px 8px #333;
+}
+
+.noResultsImg {
+	width: 500px;
+	border-radius: 25px;
+	box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.5);
+}

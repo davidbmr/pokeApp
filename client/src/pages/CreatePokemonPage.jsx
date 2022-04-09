@@ -65,10 +65,8 @@ const CreatePokemonPage = () => {
 			...newPokemon,
 			[e.target.name]: e.target.value,
 		});
-
 		setError(
 			validate({
-				//validamos los errores
 				...newPokemon,
 				[e.target.name]: e.target.value,
 			})
@@ -119,7 +117,9 @@ const CreatePokemonPage = () => {
 
 	const handlerCreatePokemon = (e) => {
 		e.preventDefault();
-		dispatch(createPokemon(newPokemon));
+		dispatch(
+			createPokemon({ ...newPokemon, name: newPokemon.name.toLowerCase() })
+		);
 		alert("Personaje creado exitosamente");
 		setNewPokemon({
 			name: "",

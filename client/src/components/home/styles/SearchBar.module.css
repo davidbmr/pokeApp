@@ -3,12 +3,13 @@
 }
 
 .buttonSearchBar {
+	width: 60px;
 	padding: 5px;
 	border-radius: 0 10px 10px 0;
 	border: none;
 }
 
 .buttonSearchBar:hover {
-	background-color: #000;
+	background-color: #af0f47;
 	color: #fff;
 }

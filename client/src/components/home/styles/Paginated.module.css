@@ -7,7 +7,7 @@
 	height: 25px;
 	margin: 5px 5px;
 	border-radius: 50%;
-	border: solid 1px #333;
+	border: solid 1px #fff;
 	font-size: 12px;
 }
 
@@ -18,17 +18,18 @@
 	border-radius: 50%;
 	font-size: 12px;
 
-	background: tomato;
-	color: white;
-	border: solid 1px tomato;
+	background: #af0f47;
+	border: solid 1px #af0f47;
+
+	color: #fff;
 	cursor: pointer;
 }
 
 .numberButton:hover,
 .currentButton:hover {
-	background: tomato;
-	color: white;
-	border: solid 1px tomato;
+	background: #af0f47;
+	border: solid 1px #af0f47;
+	color: #fff;
 	cursor: pointer;
 }
 
@@ -36,7 +37,7 @@
 	width: 40px;
 	height: 20px;
 	margin: 0 10px;
-	border: solid 1px #333;
+	border: solid 1px #fff;
 	border-radius: 20px;
 	font-size: 12px;
 }

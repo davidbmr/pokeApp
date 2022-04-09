@@ -33,6 +33,7 @@
 }
 
 .landingButton:hover {
-	background-color: #333;
+	background-color: #af0f47;
+	border: solid 1px #af0f47;
 	color: #fff;
 }

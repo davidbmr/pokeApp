@@ -43,16 +43,33 @@ const DetailsPokemonPage = () => {
 								<h1 className={style.titleInfo}>{pokemonInfo.name}</h1>
 								<p>ID: {pokemonInfo.id}</p>
 								<div className={style.rowInfo}>
-									<p>HP: {pokemonInfo.hp}</p>
-									<p>Attack: {pokemonInfo.attack}</p>
+									<p>
+										<span className={style.iconHp}></span> HP: {pokemonInfo.hp}
+									</p>
+									<p>
+										<span className={style.iconAttack}></span>Attack:{" "}
+										{pokemonInfo.attack}
+									</p>
 								</div>
 								<div className={style.rowInfo}>
-									<p>Defense: {pokemonInfo.defense}</p>
-									<p>Speed: {pokemonInfo.speed}</p>
+									<p>
+										<span className={style.iconDefense}></span>Defense:{" "}
+										{pokemonInfo.defense}
+									</p>
+									<p>
+										<span className={style.iconSpeed}></span>Speed:{" "}
+										{pokemonInfo.speed}
+									</p>
 								</div>
 								<div className={style.rowInfo}>
-									<p>Height: {pokemonInfo.height}</p>
-									<p>Weight: {pokemonInfo.weight}</p>
+									<p>
+										<span className={style.iconHeight}></span>Height:{" "}
+										{pokemonInfo.height} ft
+									</p>
+									<p>
+										<span className={style.iconWeight}></span>Weight:{" "}
+										{pokemonInfo.weight} kg
+									</p>
 								</div>
 							</div>
 						</div>

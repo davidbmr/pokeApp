@@ -8,6 +8,8 @@ import {
 	filterByCreated,
 } from "../../actions";
 
+import style from "./styles/MenuFilter.module.css";
+
 const MenuFilter = ({ setCurrentPage }) => {
 	const dispatch = useDispatch();
 	const allTypes = useSelector((state) => state.typesList);
@@ -41,7 +43,7 @@ const MenuFilter = ({ setCurrentPage }) => {
 	};
 
 	return (
-		<>
+		<div className={style.menuFilterContainer}>
 			<div>
 				<label>Tipo de pokemon: </label>
 
@@ -81,7 +83,7 @@ const MenuFilter = ({ setCurrentPage }) => {
 					<option value='weaker'>weaker</option>
 				</select>
 			</div>
-		</>
+		</div>
 	);
 };
 

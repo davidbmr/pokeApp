@@ -6,7 +6,7 @@ const LandingPage = () => {
 	return (
 		<div className={style.landingContainer}>
 			<div className={style.infoContainer}>
-				<h1>Bievenidos a pokeApi</h1>
+				<h1>Bievenidos a pokeapp</h1>
 				<Link className={style.landingButton} to='/home'>
 					Ingresar
 				</Link>

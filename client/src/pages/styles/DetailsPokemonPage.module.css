@@ -57,8 +57,43 @@
 
 .rowInfo {
 	width: 100%;
-	display: flex;
-	justify-content: space-around;
-	border-top: 1px solid rgba(0, 0, 0, 0.3);
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	place-items: center;
+	border-top: 2px solid rgba(0, 0, 0, 0.1);
 	padding: 25px 0 15px 0;
+}
+
+.iconHp,
+.iconAttack,
+.iconDefense,
+.iconSpeed,
+.iconHeight,
+.iconWeight {
+	padding: 15px;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-right: 5px;
+}
+
+.iconHp {
+	background-image: url("../../assets/icons/IconHp.png");
+}
+
+.iconAttack {
+	background-image: url("../../assets/icons/IconAttack.png");
+}
+
+.iconDefense {
+	background-image: url("../../assets/icons/IconDefense.png");
+}
+.iconSpeed {
+	background-image: url("../../assets/icons/IconSpeed.png");
+}
+.iconHeight {
+	background-image: url("../../assets/icons/IconHeight.png");
+}
+.iconWeight {
+	background-image: url("../../assets/icons/IconWeight.png");
 }

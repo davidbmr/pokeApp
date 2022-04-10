@@ -105,7 +105,10 @@ const CreatePokemonPage = () => {
 	const handlerSecondSelect = (e) => {
 		if (newPokemon.types.length === 0) {
 			alert("Primero debes de escoger tu primer tipo");
-		} else if (e.target.value === "removeType") {
+			e.target.value = "DEFAULT";
+			return;
+		}
+		if (e.target.value === "removeType") {
 			setNewPokemon({
 				...newPokemon,
 				types: [newPokemon.types[0]],

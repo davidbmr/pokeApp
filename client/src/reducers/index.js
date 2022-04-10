@@ -1,8 +1,7 @@
 const initialState = {
-	pokemonsList: [], //render
-	allPokemonsList: [], //all los pokes fijos
+	pokemonsList: [], // render pokes
+	allPokemonsList: [], // all pokes
 	createdPokemonFiltered: [],
-	typePokemonFiltered: [],
 	pokemon: {},
 	typesList: [],
 	loading: false,
@@ -21,7 +20,6 @@ function rootReducer(state = initialState, action) {
 				...state,
 				pokemonsList: [...action.payload],
 				allPokemonsList: [...action.payload],
-				typePokemonFiltered: [...action.payload],
 				createdPokemonFiltered: [...action.payload],
 				loading: false,
 			};
@@ -46,7 +44,6 @@ function rootReducer(state = initialState, action) {
 				return {
 					...state,
 					pokemonsList: allPokemons,
-					typePokemonFiltered: allPokemons,
 				};
 			} else {
 				const typesFiltered = allPokemons.filter(
@@ -58,12 +55,11 @@ function rootReducer(state = initialState, action) {
 				return {
 					...state,
 					pokemonsList: typesFiltered,
-					typePokemonFiltered: typesFiltered,
 				};
 			}
 
 		case "FILTER_BY_ORDER":
-			const currentPokemons = [...state.typePokemonFiltered];
+			const currentPokemons = [...state.pokemonsList];
 			if (action.payload === "pokedex") {
 				currentPokemons.sort((obj1, obj2) => {
 					if (obj1.id < obj2.id) {
@@ -94,11 +90,10 @@ function rootReducer(state = initialState, action) {
 			return {
 				...state,
 				pokemonsList: currentPokemons,
-				typePokemonFiltered: currentPokemons,
 			};
 
 		case "FILTER_BY_STRENGTH":
-			const currentPokemons2 = [...state.typePokemonFiltered];
+			const currentPokemons2 = [...state.pokemonsList];
 			if (action.payload === "default") {
 				currentPokemons2.sort((obj1, obj2) => {
 					if (obj1.id < obj2.id) {
@@ -132,29 +127,28 @@ function rootReducer(state = initialState, action) {
 			}
 			return {
 				...state,
-				typePokemonFiltered: currentPokemons2,
 				pokemonsList: currentPokemons2,
 			};
 
 		case "FILTER_BY_CREATED":
 			const currentPokemons3 = [...state.allPokemonsList];
 			if (action.payload === "existing") {
-				const pokemonFilteredCreated = currentPokemons3.filter(
+				const createdInApi = currentPokemons3.filter(
 					(pokemon) => pokemon.id < 1000
 				);
 				return {
 					...state,
-					pokemonsList: pokemonFilteredCreated,
-					createdPokemonFiltered: pokemonFilteredCreated,
+					pokemonsList: createdInApi,
+					createdPokemonFiltered: createdInApi,
 				};
 			} else if (action.payload === "created") {
-				const pokemonFilteredCreated = currentPokemons3.filter(
+				const createdInDb = currentPokemons3.filter(
 					(pokemon) => pokemon.id.length > 6
 				);
 				return {
 					...state,
-					pokemonsList: pokemonFilteredCreated,
-					createdPokemonFiltered: pokemonFilteredCreated,
+					pokemonsList: createdInDb,
+					createdPokemonFiltered: createdInDb,
 				};
 			}
 			return {

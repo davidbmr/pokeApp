@@ -34,12 +34,10 @@ module.exports = (sequelize) => {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 			},
-			//altura
 			height: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 			},
-			//peso
 			weight: {
 				type: DataTypes.INTEGER,
 				allowNull: false,

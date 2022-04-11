@@ -1,4 +1,4 @@
-const initialState = {
+export const initialState = {
 	pokemonsList: [], // render pokes
 	allPokemonsList: [], // all pokes
 	createdPokemonFiltered: [],

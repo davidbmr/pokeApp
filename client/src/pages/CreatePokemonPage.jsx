@@ -184,6 +184,7 @@ const CreatePokemonPage = () => {
 							<div className={style.rowInfo}>
 								<label>Name:</label>
 								<input
+									id='nameInput'
 									type='text'
 									name='name'
 									value={newPokemon.name}
@@ -195,6 +196,7 @@ const CreatePokemonPage = () => {
 							<div className={style.rowInfo}>
 								<label>HP:</label>
 								<input
+									id='hpInput'
 									type='number'
 									name='hp'
 									placeholder='Ejm: 12'
@@ -206,6 +208,7 @@ const CreatePokemonPage = () => {
 							<div className={style.rowInfo}>
 								<label>Attack:</label>
 								<input
+									id='attackInput'
 									type='number'
 									name='attack'
 									placeholder='Ejm: 12'
@@ -217,6 +220,7 @@ const CreatePokemonPage = () => {
 							<div className={style.rowInfo}>
 								<label>Defense:</label>
 								<input
+									id='defenseInput'
 									type='number'
 									name='defense'
 									placeholder='Ejm: 12'
@@ -228,6 +232,7 @@ const CreatePokemonPage = () => {
 							<div className={style.rowInfo}>
 								<label>Speed:</label>
 								<input
+									id='speedInput'
 									type='number'
 									name='speed'
 									placeholder='Ejm: 12'
@@ -243,6 +248,7 @@ const CreatePokemonPage = () => {
 							<div className={style.rowInfo}>
 								<label>Height:</label>
 								<input
+									id='heightInput'
 									type='number'
 									name='height'
 									placeholder='Ejm: 12'
@@ -254,6 +260,7 @@ const CreatePokemonPage = () => {
 							<div className={style.rowInfo}>
 								<label>Weight:</label>
 								<input
+									id='weightInput'
 									type='number'
 									name='weight'
 									placeholder='Ejm: 12'

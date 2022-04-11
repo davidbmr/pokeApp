@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { clearDetails, getPokemonDetail } from "../actions/index";
+import { clearDetails, getPokemonDetail } from "../redux/actions/index";
 import { useParams } from "react-router-dom";
 import style from "./styles/DetailsPokemonPage.module.css";
 import TypesPokemonInfo from "../components/general/TypesPokemonInfo";

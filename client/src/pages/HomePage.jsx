@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllPokemons } from "../actions";
+import { getAllPokemons } from "../redux/actions";
 import NavHome from "../components/home/NavHome";
 import Card from "../components/home/Card";
 import MenuFilter from "../components/home/MenuFilter";

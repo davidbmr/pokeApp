@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getAllTypes, createPokemon, getAllPokemons } from "../actions";
+import { getAllTypes, createPokemon, getAllPokemons } from "../redux/actions";
 import NavSecundary from "../components/general/NavSecundary";
 import style from "./styles/CreatePokemonPage.module.css";
 

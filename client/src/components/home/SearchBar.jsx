@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getNamePokemon } from "../../actions";
+import { getNamePokemon } from "../../redux/actions";
 import style from "./styles/SearchBar.module.css";
 
 const SearchBar = ({ setCurrentPage }) => {

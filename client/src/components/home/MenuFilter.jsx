@@ -6,7 +6,7 @@ import {
 	filterByOrder,
 	filterByStrength,
 	filterByCreated,
-} from "../../actions";
+} from "../../redux/actions";
 
 import style from "./styles/MenuFilter.module.css";
 

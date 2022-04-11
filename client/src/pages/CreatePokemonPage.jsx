@@ -50,17 +50,47 @@ const CreatePokemonPage = () => {
 		if (/[^\w\s]/.test(newPokemon.name))
 			errors.name =
 				"El nombre de tu poke no puede contener caracteres especiales";
+
 		if (newPokemon.hp < 1)
+			errors.hp = "Necesitas colocar un valor mayor o igual a 1";
+		if (newPokemon.hp === "")
 			errors.hp = "No te olvides de colocar la vida de tu poke";
+		if (newPokemon.hp > 200) errors.hp = "La vida no puede ser superior a 200";
+
 		if (newPokemon.attack < 1)
+			errors.attack = "Necesitas colocar un valor mayor o igual a 1";
+		if (newPokemon.attack === "")
 			errors.attack = "Coloca que tan poderoso es tu poke";
+		if (newPokemon.attack > 200)
+			errors.attack = "El ataque no puede ser superior a 200";
+
 		if (newPokemon.defense < 1)
+			errors.defense = "Necesitas colocar un valor mayor o igual a 1";
+		if (newPokemon.defense === "")
 			errors.defense = "Coloca que tan resistente es tu poke";
-		if (newPokemon.speed < 1) errors.speed = "Coloca que tan rapido es tu poke";
+		if (newPokemon.defense > 200)
+			errors.defense = "La defensa no puede ser superior a 200";
+
+		if (newPokemon.speed < 1)
+			errors.speed = "Necesitas colocar un valor mayor o igual a 1";
+		if (newPokemon.speed === "")
+			errors.speed = "Coloca que tan rapido es tu poke";
+		if (newPokemon.speed > 200)
+			errors.speed = "La velocidad no puede ser superior a 200";
+
 		if (newPokemon.height < 1)
+			errors.height = "Necesitas colocar un valor mayor o igual a 1";
+		if (newPokemon.height === "")
 			errors.height = "No te olvides colocar que tan grande es tu poke";
+		if (newPokemon.height > 200)
+			errors.height = "La tamanio no puede ser superior a 200";
+
 		if (newPokemon.weight < 1)
+			errors.weight = "Necesitas colocar un valor mayor o igual a 1";
+		if (newPokemon.weight === "")
 			errors.weight = "Cuentanos que tan pesado es tu poke";
+		if (newPokemon.weight > 200)
+			errors.weight = "El peso no puede ser superior a 200";
 
 		if (!/\.(jpg|png|gif)$/i.test(newPokemon.img))
 			errors.img = "La url que intentas colocar no es valida";
@@ -299,7 +329,6 @@ const CreatePokemonPage = () => {
 											);
 										})}
 								</select>
-								{error.types && <p className={style.error}>{error.types}</p>}
 							</div>
 
 							<div className={style.selectInfo}>

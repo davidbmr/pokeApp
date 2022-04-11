@@ -1,4 +1,3 @@
-const { default: axios } = require("axios");
 const { Router } = require("express");
 const { getAllPokemons } = require("../conections/conections");
 const { Pokemon, Type } = require("../db");

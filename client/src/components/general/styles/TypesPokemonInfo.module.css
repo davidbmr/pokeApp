@@ -63,3 +63,13 @@
 .type[value="dark"] {
 	background: #5c493a;
 }
+.type[value="steel"] {
+	background: #9d9cbf;
+}
+.type[value="shadow"] {
+	background: #562ba6;
+}
+.type[value="unknown"] {
+	background: #000;
+}
+/* 17  steel, unknown, shadow*/

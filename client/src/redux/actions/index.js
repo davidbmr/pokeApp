@@ -32,34 +32,6 @@ export function getAllTypes() {
 	};
 }
 
-export function filterByTypes(payload) {
-	return {
-		type: "FILTER_BY_TYPES",
-		payload,
-	};
-}
-
-export function filterByOrder(payload) {
-	return {
-		type: "FILTER_BY_ORDER",
-		payload,
-	};
-}
-
-export function filterByStrength(payload) {
-	return {
-		type: "FILTER_BY_STRENGTH",
-		payload,
-	};
-}
-
-export function filterByCreated(payload) {
-	return {
-		type: "FILTER_BY_CREATED",
-		payload,
-	};
-}
-
 export function getNamePokemon(name) {
 	return async function (dispatch) {
 		try {
@@ -107,5 +79,33 @@ export function clearDetails() {
 	return {
 		type: "CLEAR_DETAILS",
 		payload: {},
+	};
+}
+
+export function filterByTypes(payload) {
+	return {
+		type: "FILTER_BY_TYPES",
+		payload,
+	};
+}
+
+export function filterByOrder(payload) {
+	return {
+		type: "FILTER_BY_ORDER",
+		payload,
+	};
+}
+
+export function filterByStrength(payload) {
+	return {
+		type: "FILTER_BY_STRENGTH",
+		payload,
+	};
+}
+
+export function filterByCreated(payload) {
+	return {
+		type: "FILTER_BY_CREATED",
+		payload,
 	};
 }

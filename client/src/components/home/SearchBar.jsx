@@ -10,21 +10,25 @@ const SearchBar = ({ setCurrentPage }) => {
 
 	const handlerInputChange = (e) => {
 		e.preventDefault();
-		setName(e.target.value);
+		setName(e.target.value.toLowerCase());
 	};
 
 	const handlerSubmit = (e) => {
 		e.preventDefault();
-
-		dispatch(getNamePokemon(name));
-		setCurrentPage(() => 1);
-		setName("");
+		if (name === "") {
+			alert("Debes de ingresar el nombre del pokemon que deseas buscar");
+		} else {
+			dispatch(getNamePokemon(name));
+			setCurrentPage(() => 1);
+			setName("");
+		}
 	};
 
 	return (
 		<>
 			<form>
 				<input
+					autoFocus
 					className={style.inputSearchBar}
 					type='text'
 					placeholder='Busca tu pokemon aqui'

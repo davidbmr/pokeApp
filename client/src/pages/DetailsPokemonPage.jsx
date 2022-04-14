@@ -64,7 +64,7 @@ const DetailsPokemonPage = () => {
 								<div className={style.rowInfo}>
 									<p>
 										<span className={style.iconHeight}></span>Height:{" "}
-										{pokemonInfo.height} ft
+										{pokemonInfo.height} m
 									</p>
 									<p>
 										<span className={style.iconWeight}></span>Weight:{" "}

@@ -51,8 +51,8 @@ const getAllPokemonsInfoApi = async () => {
 						attack: element.data.stats[1].base_stat,
 						defense: element.data.stats[2].base_stat,
 						speed: element.data.stats[5].base_stat,
-						height: element.data.height,
-						weight: element.data.weight,
+						height: element.data.height / 10,
+						weight: element.data.weight / 10,
 						types: element.data.types.map((element) => {
 							return { name: element.type.name };
 						}),

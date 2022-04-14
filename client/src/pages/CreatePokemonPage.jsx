@@ -220,6 +220,7 @@ const CreatePokemonPage = () => {
 									value={newPokemon.name}
 									placeholder='Ejm: david'
 									onChange={(e) => handlerChange(e)}
+									autoComplete='off'
 								/>
 							</div>
 							{error.name && <p className={style.error}>{error.name}</p>}
@@ -232,6 +233,7 @@ const CreatePokemonPage = () => {
 									placeholder='Ejm: 12'
 									value={newPokemon.hp}
 									onChange={(e) => handlerChange(e)}
+									autoComplete='off'
 								/>
 							</div>
 							{error.hp && <p className={style.error}>{error.hp}</p>}
@@ -244,6 +246,7 @@ const CreatePokemonPage = () => {
 									placeholder='Ejm: 12'
 									value={newPokemon.attack}
 									onChange={(e) => handlerChange(e)}
+									autoComplete='off'
 								/>
 							</div>
 							{error.attack && <p className={style.error}>{error.attack}</p>}
@@ -256,6 +259,7 @@ const CreatePokemonPage = () => {
 									placeholder='Ejm: 12'
 									value={newPokemon.defense}
 									onChange={(e) => handlerChange(e)}
+									autoComplete='off'
 								/>
 							</div>
 							{error.defense && <p className={style.error}>{error.defense}</p>}
@@ -268,6 +272,7 @@ const CreatePokemonPage = () => {
 									placeholder='Ejm: 12'
 									value={newPokemon.speed}
 									onChange={(e) => handlerChange(e)}
+									autoComplete='off'
 								/>
 							</div>
 							{error.speed && <p className={style.error}>{error.speed}</p>}
@@ -284,6 +289,7 @@ const CreatePokemonPage = () => {
 									placeholder='Ejm: 12'
 									value={newPokemon.height}
 									onChange={(e) => handlerChange(e)}
+									autoComplete='off'
 								/>
 							</div>
 							{error.height && <p className={style.error}>{error.height}</p>}
@@ -296,6 +302,7 @@ const CreatePokemonPage = () => {
 									placeholder='Ejm: 12'
 									value={newPokemon.weight}
 									onChange={(e) => handlerChange(e)}
+									autoComplete='off'
 								/>
 							</div>
 							{error.weight && <p className={style.error}>{error.weight}</p>}
@@ -307,6 +314,7 @@ const CreatePokemonPage = () => {
 									placeholder='Url de tu imagen'
 									value={newPokemon.img}
 									onChange={(e) => handlerChange(e)}
+									autoComplete='off'
 								/>
 							</div>
 							{error.img && <p className={style.error}>{error.img}</p>}

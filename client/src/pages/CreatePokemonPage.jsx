@@ -163,7 +163,7 @@ const CreatePokemonPage = () => {
 		dispatch(
 			createPokemon({ ...newPokemon, name: newPokemon.name.toLowerCase() })
 		);
-		alert("Personaje creado exitosamente");
+		alert("Tu pokemon ha sido creado exitosamente");
 		setNewPokemon({
 			name: "",
 			hp: "",

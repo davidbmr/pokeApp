@@ -37,3 +37,30 @@
 .variantText {
 	font-weight: 200;
 }
+
+@media (max-width: 700px) {
+	.navHomeContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		padding: 10px 40px;
+		font-size: 14px;
+	}
+
+	.navHomeButtonCreate {
+		padding: 5px 10px;
+	}
+
+	.navHomeLogo {
+		gap: 5px;
+		font-size: 14px;
+		font-weight: bold;
+	}
+	.logoImg {
+		height: 25px;
+	}
+}
+/* 
+@media (max-width: 768px) {
+
+} */

@@ -13,3 +13,16 @@
 	background-color: #af0f47;
 	color: #fff;
 }
+
+@media (max-width: 425px) {
+	.inputSearchBar {
+		font-size: 14px;
+	}
+	.buttonSearchBar {
+		width: 60px;
+		padding: 5px;
+		font-size: 14px;
+		border-radius: 0 10px 10px 0;
+		border: none;
+	}
+}

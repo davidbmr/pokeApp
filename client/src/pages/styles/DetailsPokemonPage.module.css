@@ -1,6 +1,6 @@
 .detailsContainer {
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	background-image: url("../../assets/FondoPokemonDetails2.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
@@ -97,4 +97,32 @@
 }
 .iconWeight {
 	background-image: url("../../assets/icons/IconWeight.png");
+}
+
+@media (max-width: 768px) {
+	.pokeInfoContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		height: auto;
+	}
+	.pokeInfoImg {
+		width: 200px;
+		padding-top: 20px;
+	}
+}
+
+@media (max-width: 425px) {
+	.rowInfo {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.tableInfoContainer {
+		width: 300px;
+		height: auto;
+		padding: 10px 0;
+	}
 }

@@ -35,15 +35,19 @@
 
 .pokeListContainer {
 	width: 100%;
-	height: 550px; /*Modificar el vh*/
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	height: 100%;
 	padding-top: 10px;
 }
 
 .pokeList {
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(auto-fill, minmax(200px, 6fr));
+	place-items: center;
 	gap: 20px;
+}
+
+@media (max-width: 400px) {
+	.homeContainer {
+		background-image: url("../../assets/FondoPokemonHomeVertical.jpg");
+	}
 }

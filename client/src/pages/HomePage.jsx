@@ -52,15 +52,15 @@ const HomePage = () => {
 						</div>
 					</div>
 
+					<div className={style.paginatedList}>
+						<Paginated
+							currentPage={currentPage}
+							pageNumber={pages}
+							amountPerPage={pokemonsPerPage}
+							totalAmount={allPokemons.length}
+						/>
+					</div>
 					<div className={style.pokeListContainer}>
-						<div className={style.paginatedList}>
-							<Paginated
-								currentPage={currentPage}
-								pageNumber={pages}
-								amountPerPage={pokemonsPerPage}
-								totalAmount={allPokemons.length}
-							/>
-						</div>
 						<ul className={style.pokeList}>
 							{currentPokemons[0] !== "" && currentPokemons.length > 0 ? (
 								currentPokemons.map((pokemon) => (

@@ -7,6 +7,8 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+
+	padding: 20px;
 }
 
 .infoContainer {
@@ -36,4 +38,13 @@
 	background-color: #af0f47;
 	border: solid 1px #af0f47;
 	color: #fff;
+}
+
+@media (max-width: 550px) {
+	.infoContainer {
+		width: auto;
+		padding: 30px;
+		font-size: 14px;
+		text-align: center;
+	}
 }
